@@ -1,8 +1,8 @@
 package org.parser.service.connection;
 
-import org.jsoup.nodes.Document;
+import com.mashape.unirest.http.HttpResponse;
 
 public interface ConnectionService {
 
-    Document getDocumentFromHTML(String url);
+    HttpResponse<String> getResponseFromServer(String url);
 }
