@@ -1,12 +1,17 @@
 package org.parser;
 
-import org.parser.service.connection.ConnectionService;
-import org.parser.service.connection.ConnectionYandexContestServiceImpl;
+import org.parser.model.ContestSiteName;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ConnectionService connectionService = new ConnectionYandexContestServiceImpl();
-        connectionService.getResponseFromServer("https://contest.yandex.ru/contest/27393/problems/D/");
+        ContestFacade facade = new ContestFacade(ContestSiteName.YANDEX, "https://contest.yandex.ru/contest/27393/problems/A/");
 
+    }
+
+    private static String getUrlFromConsole() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 }

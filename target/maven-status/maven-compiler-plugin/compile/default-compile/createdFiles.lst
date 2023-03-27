@@ -1,0 +1,8 @@
+org\parser\service\parser\ParserService.class
+org\parser\utils\tags\LeetcodeTags.class
+org\parser\Main.class
+org\parser\service\connection\ConnectionService.class
+org\parser\service\MainService.class
+org\parser\model\ContestSiteName.class
+org\parser\service\connection\ConnectionYandexContestServiceImpl.class
+org\parser\service\parser\ParserServiceImpl.class
