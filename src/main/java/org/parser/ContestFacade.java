@@ -4,7 +4,7 @@ import org.parser.model.ContestSiteName;
 import org.parser.service.connection.ConnectionService;
 import org.parser.service.connection.ConnectionYandexContestServiceImpl;
 import org.parser.service.parser.ParserService;
-import org.parser.service.parser.ParserServiceImpl;
+import org.parser.service.parser.ParserYandexServiceImpl;
 
 public class ContestFacade {
     private final ContestSiteName siteName;
@@ -17,7 +17,7 @@ public class ContestFacade {
     }
 
     public void selectConnection(ContestSiteName siteName) {
-        ParserService parserService = new ParserServiceImpl();
+        ParserService parserService = new ParserYandexServiceImpl();
         ConnectionService connectionService;
         if (siteName == ContestSiteName.YANDEX) {
             connectionService = new ConnectionYandexContestServiceImpl();
