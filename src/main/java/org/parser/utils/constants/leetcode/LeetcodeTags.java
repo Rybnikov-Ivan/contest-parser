@@ -1,4 +1,4 @@
-package org.parser.utils.tags;
+package org.parser.utils.constants.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;

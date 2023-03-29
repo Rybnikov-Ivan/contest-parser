@@ -1,9 +1,9 @@
-package org.parser.utils.tags;
+package org.parser.utils.constants.yandex;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Yandex {
+public class YandexClasses {
     public final static String TITLE = "title";
     public final static String TIME_LIMIT = "time-limit";
     public final static String MEMORY_LIMIT = "memory-limit";
