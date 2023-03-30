@@ -1,16 +1,17 @@
 package org.parser.service.internalparse;
 
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.util.Deque;
+import java.util.Map;
 
 public interface InternalParseService {
 
-    Deque<String> getFullTextFromDocument(Document doc);
-    Deque<String> getParseCondition(Deque<String> deque, Element element);
-    Deque<String> getParseLegend(Deque<String> deque, Elements elements);
-    Deque<String> getParseSpecification(Deque<String> deque, Elements elements);
-    Deque<String> getParseTests(Deque<String> deque, Elements elements);
+    Deque<Map<String, String>> getFullTextFromDocument(Document doc);
+    Deque<Map<String, String>> getParseTitle(Deque<Map<String, String>> deque, Document doc, String title);
+    Deque<Map<String, String>> getParseCondition(Deque<Map<String, String>> deque, Document doc, String title);
+    Deque<Map<String, String>> getParseLegend(Deque<Map<String, String>> deque, Document doc, String title);
+    Deque<Map<String, String>> getParseSpecification(Deque<Map<String, String>> deque, Document doc, String title);
+    Deque<Map<String, String>> getParseTests(Deque<Map<String, String>> deque, Document doc, String title);
+    Deque<Map<String, String>> getParseNotes(Deque<Map<String, String>> deque, Document doc, String title);
 }
