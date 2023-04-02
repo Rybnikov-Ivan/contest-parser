@@ -1,7 +1,7 @@
 package org.parser;
 
 import org.jsoup.nodes.Document;
-import org.parser.model.ContestSiteName;
+import org.parser.model.TypeContest;
 import org.parser.service.connection.ConnectionService;
 import org.parser.service.connection.ConnectionYandexContestServiceImpl;
 import org.parser.service.convert.ConvertService;
@@ -17,17 +17,17 @@ import java.util.Map;
 public class ContestFacade {
     private final String url;
 
-    public ContestFacade(ContestSiteName siteName, String url) {
+    public ContestFacade(TypeContest siteName, String url, String path) {
         this.url = url;
         selectConnection(siteName);
     }
 
-    public void selectConnection(ContestSiteName siteName) {
+    public void selectConnection(TypeContest siteName) {
         ExternalParseService externalParseService = new ExternalParseYandexServiceImpl();
         InternalParseService internalParseService = new InternalParseYandexServiceImpl();
         ConvertService convertService = new ConvertToMDServiceImpl();
         ConnectionService connectionService;
-        if (siteName == ContestSiteName.YANDEX) {
+        if (siteName == TypeContest.YANDEX) {
             connectionService = new ConnectionYandexContestServiceImpl();
             Document actualDocumentFromHtml = externalParseService.getBodyResponse(connectionService.getResponseFromServer(url));
             Deque<Map<String, String>> deq = internalParseService.getFullTextFromDocument(actualDocumentFromHtml);

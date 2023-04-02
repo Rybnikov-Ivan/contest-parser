@@ -17,7 +17,6 @@ public class InternalParseYandexServiceImpl implements InternalParseService {
             switch (yClass) {
                 case "title":
                     processParseTitle(deque, doc, yClass);
-                    deque.addLast(Map.of("span", "\n"));
                     break;
                 case "time-limit":
                 case "memory-limit":
@@ -26,9 +25,7 @@ public class InternalParseYandexServiceImpl implements InternalParseService {
                     processParseCondition(deque, doc, yClass);
                     break;
                 case "legend":
-                    deque.addLast(Map.of("span", "\n"));
                     processParseLegend(deque, doc, yClass);
-                    deque.addLast(Map.of("span", "\n"));
                     break;
                 case "input-specification":
                 case "output-specification":
@@ -36,7 +33,6 @@ public class InternalParseYandexServiceImpl implements InternalParseService {
                     break;
                 case "sample-tests":
                     processParseTests(deque, doc, yClass);
-                    deque.addLast(Map.of("span", "\n"));
                     break;
                 case "notes":
                     processParseNotes(deque, doc, yClass);

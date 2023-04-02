@@ -16,15 +16,11 @@ public class ConvertToMDServiceImpl implements ConvertService {
         for (Map<String, String> map : deque) {
             String key = map.entrySet().iterator().next().getKey();
             String val = map.get(key);
-            if (map.containsKey("span")) {
-                markdownText.addLast(map.get("span"));
-            } else {
-                for (String tag : tagsAndReplacement.keySet()) {
-                    val = val.replaceAll(tag, tagsAndReplacement.get(tag));
-                }
-                val = Jsoup.clean(val, Safelist.none());
-                markdownText.addLast(val);
+            for (String tag : tagsAndReplacement.keySet()) {
+                val = val.replaceAll(tag, tagsAndReplacement.get(tag));
             }
+            val = Jsoup.clean(val, Safelist.none());
+            markdownText.addLast(val);
         }
         return markdownText;
     }
